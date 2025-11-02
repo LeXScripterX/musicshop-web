@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# IA
+.claude
+
 # Node
 /node_modules
 npm-debug.log
