@@ -1,0 +1,13 @@
+.titleCard {
+    text-align: center;
+    color: rgb(95, 4, 4);
+    font-size: 40px;
+
+}
+
+.cardStyle {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: white !important;
+    border-radius: 10px;
+}
