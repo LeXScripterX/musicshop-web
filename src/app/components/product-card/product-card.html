@@ -1,0 +1,16 @@
+<div class="card product-card h-100">
+    <div class="products-image-wrapper">
+        <img [src]="product.image" [alt]="product.name" class="card-img-top product-image"
+            (error)="$event.target.src='assets/images/placeholder.jpg'" />
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.category }}</p>
+        <p class="price">{{ product.price | currency:'COP':'symbol':'1.0-0' }}</p>
+        <button class="btn btn-dark w-100">
+            <i class="bi bi-cart-fill me-2"></i> Comprar
+        </button>
+
+    </div>
+</div>
