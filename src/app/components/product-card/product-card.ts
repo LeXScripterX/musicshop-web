@@ -13,7 +13,28 @@ export class ProductCard {
     name: string;
     image: string;
     category: string;
-    price: number; 
+    price: number;
   };
 
+  mostrarCompra = false;
+
+  abrirCompra(): void {
+    this.mostrarCompra = true;
+  }
+
+  cerrarCompra(): void {
+    this.mostrarCompra = false;
+  }
+  mensajeAgregado = false;
+
+  confirmarCompra(): void {
+    this.mostrarCompra = false;
+    this.mensajeAgregado = true;
+
+    // Ocultar el mensaje después de 2.5 segundos
+    setTimeout(() => {
+      this.mensajeAgregado = false;
+    }, 2500);
+  }
+  
 }

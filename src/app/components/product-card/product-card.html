@@ -5,12 +5,28 @@
     </div>
 
     <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
+        <h5 class="card-title"><strong>{{ product.name }}</strong></h5>
         <p class="card-text">{{ product.category }}</p>
         <p class="price">{{ product.price | currency:'COP':'symbol':'1.0-0' }}</p>
-        <button class="btn btn-dark w-100">
+
+        <button class="btn btn-dark w-100" (click)="abrirCompra()">
             <i class="bi bi-cart-fill me-2"></i> Comprar
         </button>
-
     </div>
+</div>
+
+<!-- Modal personalizado -->
+<div class="compra-modal" *ngIf="mostrarCompra">
+    <div class="modal-content">
+        <h5>Comprar {{ product.name }}</h5>
+        <p>¿Deseas comprar <strong>{{ product.name }}</strong> por {{ product.price | currency:'COP' }}?</p>
+        <div class="d-flex justify-content-center gap-2 mt-3">
+            <button class="btn btn-secondary" (click)="cerrarCompra()">Cancelar</button>
+            <button class="btn btn-dark" (click)="confirmarCompra()">Confirmar compra</button>
+        </div>
+    </div>
+</div>
+
+<div class="alert-carrito" *ngIf="mensajeAgregado">
+    <i class="bi bi-check-circle-fill me-2"></i> Producto agregado al carrito
 </div>
