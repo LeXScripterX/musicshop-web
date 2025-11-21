@@ -1,159 +1,135 @@
-<div class="py-5 min-vh-100" style="background-color: var(--background-dark);">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-xl-7">
-        
-        <!-- Header -->
-        <div class="text-center mb-5">
-          <h1 class="display-4 fw-bold mb-3" style="color: var(--text-dark);">Contacto</h1>
-          <p class="lead" style="color: var(--text-dark); opacity: 0.7;">¿Tienes preguntas o sugerencias? Contáctanos</p>
-        </div>
+<div class="back">
+  <div class="py-5 min-vh-100" style="background-color: var(--background-dark);">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
 
-        <!-- Mensaje de éxito -->
-        @if (successMessage) {
-          <div class="alert alert-success d-flex align-items-center mb-4 animate__animated animate__fadeIn" 
-               role="alert" style="background-color: rgba(0, 153, 0, 0.2); border: 1px solid #00cc00; color: #00ff00;">
+          <!-- Header -->
+
+          <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold mb-3" style="color: var(--text-dark);">Contacto</h1>
+            <p class="lead" style="color: var(--text-dark); opacity: 0.7;">¿Tienes preguntas o sugerencias? Contáctanos
+            </p>
+          </div>
+
+          <!-- Mensaje de éxito -->
+          @if (successMessage) {
+          <div class="alert alert-success d-flex align-items-center mb-4 animate__animated animate__fadeIn" role="alert"
+            style="background-color: rgba(0, 153, 0, 0.2); border: 1px solid #00cc00; color: #00ff00;">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-              <use xlink:href="#check-circle-fill"/>
+              <use xlink:href="#check-circle-fill" />
             </svg>
             <div>
               ¡Mensaje enviado exitosamente! Te contactaremos pronto.
             </div>
           </div>
-        }
+          }
 
-        <!-- Formulario -->
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" 
-              class="p-4 p-md-5 rounded-3 shadow-lg" 
-              style="background: var(--gradient-start); border: 1px solid var(--border-dark);">
-          
-          <!-- Nombre -->
-          <div class="mb-4">
-            <label for="name" class="form-label fw-semibold" style="color: var(--text-dark);">
-              Nombre Completo <span class="text-danger">*</span>
-            </label>
-            <input
-              type="text"
-              id="name"
-              formControlName="name"
-              class="form-control form-control-lg"
-              placeholder="Tu nombre completo"
-              [class.is-invalid]="submitted && f['name'].errors"
-              [style.background-color]="'var(--card-dark)'"
-              [style.border-color]="submitted && f['name'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
-              [style.color]="'var(--text-dark)'"
-            />
-            @if (submitted && f['name'].errors) {
+          <!-- Formulario -->
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="p-4 p-md-5 rounded-3 shadow-lg"
+            style="background: var(--gradient-start); border: 1px solid var(--border-dark);">
+
+            <!-- Nombre -->
+            <div class="mb-4">
+              <label for="name" class="form-label fw-semibold" style="color: var(--text-dark);">
+                Nombre Completo <span class="text-danger">*</span>
+              </label>
+              <input type="text" id="name" formControlName="name" class="form-control form-control-lg"
+                placeholder="Tu nombre completo" [class.is-invalid]="submitted && f['name'].errors"
+                [style.background-color]="'var(--card-dark)'"
+                [style.border-color]="submitted && f['name'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
+                [style.color]="'var(--text-dark)'" />
+              @if (submitted && f['name'].errors) {
               <div class="invalid-feedback d-block">
                 @if (f['name'].errors['required']) {
-                  <span>El nombre es requerido</span>
+                <span>El nombre es requerido</span>
                 }
                 @if (f['name'].errors['minlength']) {
-                  <span>El nombre debe tener al menos 3 caracteres</span>
+                <span>El nombre debe tener al menos 3 caracteres</span>
                 }
               </div>
-            }
-          </div>
+              }
+            </div>
 
-          <!-- Email -->
-          <div class="mb-4">
-            <label for="email" class="form-label fw-semibold" style="color: var(--text-dark);">
-              Correo Electrónico <span class="text-danger">*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              formControlName="email"
-              class="form-control form-control-lg"
-              placeholder="tu@email.com"
-              [class.is-invalid]="submitted && f['email'].errors"
-              [style.background-color]="'var(--card-dark)'"
-              [style.border-color]="submitted && f['email'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
-              [style.color]="'var(--text-dark)'"
-            />
-            @if (submitted && f['email'].errors) {
+            <!-- Email -->
+            <div class="mb-4">
+              <label for="email" class="form-label fw-semibold" style="color: var(--text-dark);">
+                Correo Electrónico <span class="text-danger">*</span>
+              </label>
+              <input type="email" id="email" formControlName="email" class="form-control form-control-lg"
+                placeholder="tu@email.com" [class.is-invalid]="submitted && f['email'].errors"
+                [style.background-color]="'var(--card-dark)'"
+                [style.border-color]="submitted && f['email'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
+                [style.color]="'var(--text-dark)'" />
+              @if (submitted && f['email'].errors) {
               <div class="invalid-feedback d-block">
                 @if (f['email'].errors['required']) {
-                  <span>El email es requerido</span>
+                <span>El email es requerido</span>
                 }
                 @if (f['email'].errors['email']) {
-                  <span>Ingresa un email válido</span>
+                <span>Ingresa un email válido</span>
                 }
               </div>
-            }
-          </div>
+              }
+            </div>
 
-          <!-- Asunto -->
-          <div class="mb-4">
-            <label for="subject" class="form-label fw-semibold" style="color: var(--text-dark);">
-              Asunto <span class="text-danger">*</span>
-            </label>
-            <select
-              id="subject"
-              formControlName="subject"
-              class="form-select form-select-lg"
-              [class.is-invalid]="submitted && f['subject'].errors"
-              [style.background-color]="'var(--card-dark)'"
-              [style.border-color]="submitted && f['subject'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
-              [style.color]="'var(--text-dark)'"
-            >
-              <option value="" disabled selected>Selecciona un asunto</option>
-              <option value="consulta">Consulta General</option>
-              <option value="sugerencia">Sugerencia</option>
-              <option value="reporte">Reportar Error</option>
-              <option value="colaboracion">Colaboración</option>
-              <option value="otro">Otro</option>
-            </select>
-            @if (submitted && f['subject'].errors?.['required']) {
+            <!-- Asunto -->
+            <div class="mb-4">
+              <label for="subject" class="form-label fw-semibold" style="color: var(--text-dark);">
+                Asunto <span class="text-danger">*</span>
+              </label>
+              <select id="subject" formControlName="subject" class="form-select form-select-lg"
+                [class.is-invalid]="submitted && f['subject'].errors" [style.background-color]="'#000'"
+                [style.border-color]="submitted && f['subject'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
+                [style.color]="'#fff'">
+                <option value="" disabled selected>Selecciona un asunto</option>
+                <option value="consulta">Consulta General</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="reporte">Reportar Error</option>
+                <option value="colaboracion">Colaboración</option>
+                <option value="otro">Otro</option>
+              </select>
+              @if (submitted && f['subject'].errors?.['required']) {
               <div class="invalid-feedback d-block">
                 El asunto es requerido
               </div>
-            }
-          </div>
+              }
+            </div>
 
-          <!-- Mensaje -->
-          <div class="mb-4">
-            <label for="message" class="form-label fw-semibold" style="color: var(--text-dark);">
-              Mensaje <span class="text-danger">*</span>
-            </label>
-            <textarea
-              id="message"
-              formControlName="message"
-              rows="6"
-              class="form-control form-control-lg"
-              placeholder="Escribe tu mensaje aquí..."
-              [class.is-invalid]="submitted && f['message'].errors"
-              [style.background-color]="'var(--card-dark)'"
-              [style.border-color]="submitted && f['message'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
-              [style.color]="'var(--text-dark)'"
-              style="resize: none;"
-            ></textarea>
-            @if (submitted && f['message'].errors) {
+            <!-- Mensaje -->
+            <div class="mb-4">
+              <label for="message" class="form-label fw-semibold" style="color: var(--text-dark);">
+                Mensaje <span class="text-danger">*</span>
+              </label>
+              <textarea id="message" formControlName="message" rows="6" class="form-control form-control-lg"
+                placeholder="Escribe tu mensaje aquí..." [class.is-invalid]="submitted && f['message'].errors"
+                [style.background-color]="'var(--card-dark)'"
+                [style.border-color]="submitted && f['message'].errors ? 'var(--primary-color)' : 'var(--border-dark)'"
+                [style.color]="'var(--text-dark)'" style="resize: none;"></textarea>
+              @if (submitted && f['message'].errors) {
               <div class="invalid-feedback d-block">
                 @if (f['message'].errors['required']) {
-                  <span>El mensaje es requerido</span>
+                <span>El mensaje es requerido</span>
                 }
                 @if (f['message'].errors['minlength']) {
-                  <span>El mensaje debe tener al menos 10 caracteres</span>
+                <span>El mensaje debe tener al menos 10 caracteres</span>
                 }
               </div>
-            }
-          </div>
+              }
+            </div>
 
-          <!-- Botón Enviar -->
-          <div class="d-grid gap-2">
-            <button
-              type="submit"
-              class="btn btn-lg fw-bold rounded-3 shadow"
-              style="background-color: #161616; color: #fff; border: none; transition: all 0.3s ease;"
-              onmouseover="this.style.backgroundColor='#205651'; this.style.transform='scale(1.02)'; this.style.boxShadow='0 0 20px var(--primary-color-glow)'"
-              onmouseout="this.style.backgroundColor='#161616;'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'"
-            >
-              Enviar Mensaje
-            </button>
-          </div>
-        </form>
+            <!-- Botón Enviar -->
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-lg fw-bold rounded-3 shadow"
+                style="background-color: #8b8b8b; color: #fff; border: none; transition: all 0.3s ease;"
+                onmouseover="this.style.backgroundColor='#205651'; this.style.transform='scale(1.02)'; this.style.boxShadow='0 0 20px var(--primary-color-glow)'"
+                onmouseout="this.style.backgroundColor='#161616;'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'">
+                Enviar Mensaje
+              </button>
+            </div>
+          </form>
 
+        </div>
       </div>
     </div>
   </div>
@@ -162,6 +138,7 @@
 <!-- SVG Icons para el alert de éxito -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    <path
+      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
   </symbol>
 </svg>

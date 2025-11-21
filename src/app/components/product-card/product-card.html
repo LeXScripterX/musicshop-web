@@ -21,8 +21,8 @@
         <h5>Comprar {{ product.name }}</h5>
         <p>¿Deseas comprar <strong>{{ product.name }}</strong> por {{ product.price | currency:'COP' }}?</p>
         <div class="d-flex justify-content-center gap-2 mt-3">
-            <button class="btn btn-secondary" (click)="cerrarCompra()">Cancelar</button>
             <button class="btn btn-dark" (click)="confirmarCompra()">Confirmar compra</button>
+            <button class="btn btn-secondary" (click)="cerrarCompra()">Cancelar</button>
         </div>
     </div>
 </div>
